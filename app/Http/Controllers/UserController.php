@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -21,8 +22,10 @@ public function ShowRegister()
 }
 
 public function ShowDashboard()
+
 {
-    return view('User.dashboard');
+    $products = Product::all(); 
+    return view('User.dashboard',compact('products'));
 }
 public function ShowAdminDashboard()
 {
